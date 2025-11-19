@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 
-export default async () => {
+export async function handler(event, context) {
+  // Dynamic import required for node-fetch v3+
+  const fetch = (await import("node-fetch")).default;
 
   const BOT_TOKEN = process.env.BOT_TOKEN;
   const CHAT_ID = process.env.CHAT_ID;
