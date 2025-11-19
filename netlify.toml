@@ -1,9 +1,10 @@
 [build]
+  publish = "public"
   functions = "netlify/functions"
-  publish = "."
 
-# Daily scheduled message
+[functions]
+  node_bundler = "esbuild"
+
 [[scheduled]]
   name = "sendMessage"
-  cron = "0 7 * * *"
-  function = "sendMessage"
+  cron = "0 7 * * *" # Runs 7:00 AM Nigeria time (UTC+1)
